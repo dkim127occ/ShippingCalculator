@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
                     {
                         // something went terribly wrong
                         new AlertDialog.Builder(mContext)
-                                .setTitle("OH MY GOD")
-                                .setMessage("WHAT HAVE YOU DONE??")
-                                .setPositiveButton("I'M SO SORRY!", new DialogInterface.OnClickListener() {
+                                .setTitle(R.string.panic_error)
+                                .setMessage(R.string.panic_query)
+                                .setPositiveButton(R.string.panic_apology, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Toast.makeText(mContext, "YOU ARE A TERRIBLE PERSON", Toast.LENGTH_LONG)
+                                        Toast.makeText(mContext, R.string.scold, Toast.LENGTH_LONG)
                                                 .show();
                                     }
                                 })

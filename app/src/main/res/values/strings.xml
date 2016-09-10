@@ -5,4 +5,8 @@
     <string name="base_cost">Base cost</string>
     <string name="added_cost">Added cost</string>
     <string name="total_shipping_cost">Total shipping cost</string>
+    <string name="panic_error">OH MY GOD</string>
+    <string name="panic_query">WHAT HAVE YOU DONE</string>
+    <string name="panic_apology">I\'M SO SORRY</string>
+    <string name="scold">YOU ARE A TERRIBLE PERSON</string>
 </resources>

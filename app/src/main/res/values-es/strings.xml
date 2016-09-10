@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shipping Calculator</string>
+    <string name="input_query">Peso del paquete</string>
+    <string name="input_unit">(en onzas)</string>
+    <string name="total_shipping_cost">Costo total del envío</string>
+    <string name="base_cost">Costo básico</string>
+    <string name="added_cost">Coste añadido</string>
+    <string name="panic_apology">MUCHO LO SIENTO</string>
+    <string name="panic_error">OH DIOS MÍO</string>
+    <string name="panic_query">QUÉ HAS HECHO</string>
+    <string name="scold">USTED ES TERRIBLE</string>
+</resources>
