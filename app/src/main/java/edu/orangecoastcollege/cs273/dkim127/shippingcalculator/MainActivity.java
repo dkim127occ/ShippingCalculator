@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mAddedCostTextView.setText(formatter.format(0));
         mBaseCostTextView.setText(formatter.format(0));
         mTotalCostTextView.setText(formatter.format(0));
-        mUserInputEditText.setText("0");
+
 
         // add listener for the user input
         mUserInputEditText.addTextChangedListener(new TextWatcher() {
@@ -57,36 +57,42 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try
+                if (s.length() > 0)
                 {
-                    mShipItem.setWeight(Double.parseDouble(s.toString()));
+                    try
+                    {
+                        mShipItem.setWeight(Double.parseDouble(s.toString()));
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        // something went terribly wrong
+                        new AlertDialog.Builder(mContext)
+                                .setTitle("OH MY GOD")
+                                .setMessage("WHAT HAVE YOU DONE??")
+                                .setPositiveButton("I'M SO SORRY!", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Toast.makeText(mContext, "YOU ARE A TERRIBLE PERSON", Toast.LENGTH_LONG)
+                                                .show();
+                                    }
+                                })
+                                .show();
+                        mShipItem.setWeight(0);
+                    }
                 }
-                catch (NumberFormatException e)
+                else
                 {
-                    // something went terribly wrong
-                    new AlertDialog.Builder(mContext)
-                            .setTitle("OH MY GOD")
-                            .setMessage("WHAT HAVE YOU DONE??")
-                            .setPositiveButton("I'M SO SORRY!", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(mContext, "YOU ARE A TERRIBLE PERSON", Toast.LENGTH_LONG)
-                                            .show();
-                                }
-                            })
-                            .show();
+                    // catch empty input strings
                     mShipItem.setWeight(0);
-                    mUserInputEditText.setText("0");
                 }
-                finally
-                {
-                    mAddedCostTextView.setText(String.valueOf(
-                            formatter.format(mShipItem.getAddedCost())));
-                    mBaseCostTextView.setText(String.valueOf(
-                            formatter.format(mShipItem.getBaseCost())));
-                    mTotalCostTextView.setText(String.valueOf(
-                            formatter.format(mShipItem.getTotalCost())));
-                }
+
+                mAddedCostTextView.setText(String.valueOf(
+                        formatter.format(mShipItem.getAddedCost())));
+                mBaseCostTextView.setText(String.valueOf(
+                        formatter.format(mShipItem.getBaseCost())));
+                mTotalCostTextView.setText(String.valueOf(
+                        formatter.format(mShipItem.getTotalCost())));
+
             }
 
             @Override

@@ -25,17 +25,15 @@ public class ShipItem
      */
     public double getAddedCost()
     {
-        this.calculate();
         return mAddedCost;
     }
 
     /**
      * Returns the calculated total cost for shipping this package.
-     * @return
+     * @return the total cost
      */
     public double getTotalCost()
     {
-        this.calculate();
         return mTotalCost;
     }
 
