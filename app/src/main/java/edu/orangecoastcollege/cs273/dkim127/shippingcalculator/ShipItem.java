@@ -5,6 +5,7 @@ public class ShipItem
     private static final double BASE_COST = 3;
     private static final double SURCHARGE = 0.5;
     private static final double WEIGHT_THRESHOLD = 16;
+    private static final double WEIGHT_DELTA = 4;
 
     private double mWeight;
     private double mAddedCost;
@@ -52,9 +53,9 @@ public class ShipItem
      */
     private void calculate()
     {
-        if (mWeight > 16)
+        if (mWeight > WEIGHT_THRESHOLD)
         {
-            mAddedCost = SURCHARGE * Math.ceil(mWeight / WEIGHT_THRESHOLD);
+            mAddedCost = SURCHARGE * Math.ceil((mWeight - WEIGHT_THRESHOLD) / WEIGHT_DELTA);
         }
         else
         {
